@@ -11,7 +11,7 @@ const client = new MongoClient(url);
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin:["https://agent-portal-api.vercel.app"],
+  origin:["https://agent-portal-front.vercel.app"],
   methods:["POST","GET"],
   credentials:true
 }));
