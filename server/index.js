@@ -10,7 +10,11 @@ const url = "mongodb+srv://admin:Password@database.zltuqrc.mongodb.net/";
 const client = new MongoClient(url);
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin:["https://agent-portal-front.vercel.app/"],
+  methods:["POST","GET"],
+  credentials:true
+}));
 
 app.get("/",(req,res) =>{
   res.json("hello");
