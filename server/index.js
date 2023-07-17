@@ -76,6 +76,7 @@ app.post('/login', async (req, res) => {
       const collection = client.db("dataBase").collection("clients");
       const objectId = new ObjectId(req.body.data.id);
       await collection.deleteOne({_id:objectId});
+      res.json({ message: '1' });
 
     } catch (error) {
       console.error('Error connecting to MongoDB:', error);
