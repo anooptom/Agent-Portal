@@ -12,7 +12,7 @@ body{
   .nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-left:6vw;
     display: flex;
   }
   
@@ -31,7 +31,7 @@ body{
 .sell {
     display: table-cell;
     color: #f1ebebe9;
-    width: 55vw;
+    width: 53vw;
     height: 5vh;
     background-color: #0f0f0f;
     margin-top:2vh;

@@ -21,11 +21,12 @@
   
   .s-input {
     display: table-cell;
-    padding: 0.1rem 1rem;
+    padding-left: 6vw ;
+    width: 100%;
     color: #f1ebebe9;
     height: 5vh;
     background-color: #0f0f0f;
-    margin: 1vh 0;
+    margin: 1vh;
     border: 1px solid #f1ebebe9;
     font-family: 'Poppins';
     font-size: 0.85rem;
