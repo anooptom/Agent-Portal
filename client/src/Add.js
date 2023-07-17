@@ -38,7 +38,7 @@ const Add = () =>{
       const handleSubmit = (e) => {
         e.preventDefault();
     
-        axios.post(' http://192.168.1.8:3001/add', {data:formData,month : Location.state.month})
+        axios.post(' agent-portal-api.vercel.app/add', {data:formData,month : Location.state.month})
           .then(response => {
             if(response.data.message === '1'){
               navigate('/Dashboard');

@@ -34,7 +34,7 @@ const Edit = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://192.168.1.8:3001/editt', { data: det});
+      await axios.post('agent-portal-api.vercel.app/editt', { data: det});
       navigate('/Dashboard');
     } catch (error) {
       console.error(error);

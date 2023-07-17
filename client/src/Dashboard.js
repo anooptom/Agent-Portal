@@ -22,7 +22,7 @@ const Dashboard = () => {
 
   useEffect(() =>{
     const fetchclients = async () => {
-      await fetch(`http://192.168.1.8:3001/clients?name=${encodeURIComponent(selectedOption)}`, {
+      await fetch(`agent-portal-api.vercel.app/clients?name=${encodeURIComponent(selectedOption)}`, {
         method: 'GET',
         mode: 'cors',
         headers: {
