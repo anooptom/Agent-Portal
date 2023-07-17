@@ -12,6 +12,10 @@ const client = new MongoClient(url);
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get("/",(req,res) =>{
+  res.json("hello");
+})
+
 app.get('/clients', async (req, res) => {
   try {
     await client.connect();
