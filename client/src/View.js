@@ -9,7 +9,7 @@ const View = () => {
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const response = await fetch(`https://agent-portal-front.vercel.app/details?name=${encodeURIComponent(location.search.substring(1))}`, {
+        const response = await fetch(`https://agent-portal-api.vercel.app/details?name=${encodeURIComponent(location.search.substring(1))}`, {
           method: 'GET',
           mode: 'cors',
           headers: {
