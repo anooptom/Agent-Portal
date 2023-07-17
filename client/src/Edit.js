@@ -19,7 +19,8 @@ const Edit = () => {
       date: location.state.date,
       phno: location.state.phno,
       amt: location.state.amt,
-      paid: location.state.paid
+      paid: location.state.paid,
+      type:location.state.type
     });
   }, [location.state]);
 
@@ -67,6 +68,18 @@ const Edit = () => {
                 id="phno"
                 name="phno"
                 value={det.phno}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="input-group">
+              <input
+                className="s-input"
+                type="text"
+                placeholder="Type"
+                id="type"
+                name="type"
+                value={det.type}
                 onChange={handleChange}
               />
             </div>

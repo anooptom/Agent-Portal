@@ -17,6 +17,7 @@ const Add = () =>{
         extra:'',
         phno:'',
         co:'',
+        type:'',
       });
 
       const handleChange = (e) => {
@@ -69,6 +70,10 @@ const Add = () =>{
             <div className="input-group">
             
               <input className='s-input' type="number"  placeholder='Date' id="date" name="date" value={formData.date} onChange={handleChange} />
+            </div>
+
+            <div className="input-group">
+              <input className='s-input' type="text"  placeholder='Type ' id="type" name="type" value={formData.type} onChange={handleChange} required/>
             </div>
 
             <div className="input-group">

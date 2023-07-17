@@ -47,6 +47,11 @@ const View = () => {
                     <td>Date</td>
                     <td>: {data.date}</td>
                 </tr>
+
+                <tr>
+                    <td>Type</td>
+                    <td>: {data.type}</td>
+                </tr>
                 
                 <tr>
                     <td>Vehicle No</td>
@@ -80,7 +85,7 @@ const View = () => {
 
                 </table>
 
-                <button className='btn' onClick={() => navigate('/Edit', { state: { id: data._id , name:data.name , vno : data.vno , pno : data.pno , extra : data.extra , co : data.co ,date : data.date,phno : data.phno, amt:data.amt , paid:data.paid} })}>Edit</button>
+                <button className='btn' onClick={() => navigate('/Edit', { state: { id: data._id , name:data.name ,type:data.type , vno : data.vno , pno : data.pno , extra : data.extra , co : data.co ,date : data.date,phno : data.phno, amt:data.amt , paid:data.paid} })}>Edit</button>
              </div>
 
           );

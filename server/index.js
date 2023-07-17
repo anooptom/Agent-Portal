@@ -88,7 +88,7 @@ app.post('/add', async (req, res) => {
   try {
     await client.connect();
     const collection = client.db("dataBase").collection("clients");
-    await collection.insertOne({ name: req.body.data.name ,phno:req.body.data.phno,co:req.body.data.co, date : req.body.data.date , vno : req.body.data.vno , pno : req.body.data.pno , amt : req.body.data.amt , paid : req.body.data.paid , extra :req.body.data.extra , month: req.body.month});
+    await collection.insertOne({ name: req.body.data.name ,phno:req.body.data.phno,type:req.body.data.type, co:req.body.data.co, date : req.body.data.date , vno : req.body.data.vno , pno : req.body.data.pno , amt : req.body.data.amt , paid : req.body.data.paid , extra :req.body.data.extra , month: req.body.month});
     res.json({message:'1'})
     
   } catch (error) {
