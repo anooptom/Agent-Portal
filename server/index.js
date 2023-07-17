@@ -70,6 +70,19 @@ app.post('/login', async (req, res) => {
     }
   });
 
+  app.post('/del', async (req, res) => {
+    try {
+      await client.connect();
+      const collection = client.db("dataBase").collection("clients");
+      const objectId = new ObjectId(req.body.data.id);
+      await collection.deleteOne({_id:objectId});
+
+    } catch (error) {
+      console.error('Error connecting to MongoDB:', error);
+      res.status(500).json({ message: 'Error connecting to MongoDB' });
+    }
+  });
+
 app.post('/add', async (req, res) => {
   try {
     await client.connect();

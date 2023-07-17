@@ -160,6 +160,16 @@ const Edit = () => {
               <button className="btn" type="submit">
                 Submit
               </button>
+
+              <button className='btn' onClick={async (e) =>{
+                e.preventDefault();
+                try {
+                  await axios.post('https://agent-portal-api.vercel.app/del', { data: det});
+                  navigate('/Dashboard');
+                } catch (error) {
+                  console.error(error);
+                }
+              } }>Delete</button>
             </div>
           </form>
         </div>
