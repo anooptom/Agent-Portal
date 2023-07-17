@@ -1,0 +1,92 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.nav {
+    background-color:#272727;
+  padding: 10px;
+  }
+
+  
+  .nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav li {
+    cursor: pointer;
+    padding: 10px 35px;
+  }
+  
+  .nav li.active {
+    color: rgb(233, 195, 69);
+    font-weight: bold;
+  }
+
+
+
+.sell {
+    display: table-cell;
+    color: #f1ebebe9;
+    width: 55vw;
+    height: 5vh;
+    background-color: #0f0f0f;
+    margin-top:2vh;
+    margin-left: 6vw;
+    border: 1px solid #f1ebebe9;
+    font-family: 'Poppins';
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    display: table-cell;
+    color: #f1ebebe9;
+    height: 5vh;
+    width: 20vw;
+    background-color: #0f0f0f;
+    margin-top:2vh;
+    margin-left: 15vw;
+    border: 1px solid #f1ebebe9;
+    font-family: 'Poppins';
+    font-size: 0.85rem;
+  }
+
+hr{
+
+  border-color: #272727;
+  
+}
+
+.disp{
+  padding: 20px;
+}
+
+.item{
+  display: flex;
+  justify-content: space-between;
+}
+
+.d{
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.tab{
+  padding-top: 10vh;
+  padding-left: 10vw;
+}
+
+tr{
+  height: 5vh;
+}
+
+td{
+  width: 40vw;
+}

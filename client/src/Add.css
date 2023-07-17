@@ -1,0 +1,48 @@
+
+.s-form {
+    display: table;
+    height: 37vh;
+    padding: 3vh 8vw;
+  }
+  
+  .s-button {
+    margin-top:5vh;
+    margin-left: 30vw;
+    background-color: #272727;
+    color: #f1ebebe9;
+    border: #272727;
+    padding: 0.5rem 1rem;
+    font-family: 'Poppins';
+  }
+  
+  .s-button:hover {
+    cursor: pointer;
+  }
+  
+  .s-input {
+    display: table-cell;
+    padding: 0.1rem 1rem;
+    color: #f1ebebe9;
+    height: 5vh;
+    background-color: #0f0f0f;
+    margin: 1vh 0;
+    border: 1px solid #f1ebebe9;
+    font-family: 'Poppins';
+    font-size: 0.85rem;
+  }
+
+  .h{
+    margin-left: 9vw;
+  }
+
+ .st{
+  display: table-cell;
+    padding: 2vh;
+    padding-right: 12vw;
+    color: #f1ebebe9;
+    background-color: #0f0f0f;
+    margin: 1vh 0;
+    border: 1px solid #f1ebebe9;
+    font-family: 'Poppins';
+    font-size: 0.85rem;
+ }
