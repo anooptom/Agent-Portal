@@ -73,11 +73,11 @@ const Add = () =>{
             </div>
 
             <div className="input-group">
-              <input className='s-input' type="text"  placeholder='Type ' id="type" name="type" value={formData.type} onChange={handleChange} required/>
+              <input className='s-input' type="text"  placeholder='Type ' id="type" name="type" value={formData.type} onChange={handleChange} />
             </div>
 
             <div className="input-group">
-              <input className='s-input' type="text"  placeholder='Vehicle No. ' id="vno" name="vno" value={formData.vno} onChange={handleChange} required/>
+              <input className='s-input' type="text"  placeholder='Vehicle No. ' id="vno" name="vno" value={formData.vno} onChange={handleChange} />
             </div>
 
             <div className="input-group">
