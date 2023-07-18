@@ -55,7 +55,7 @@ const Add = () =>{
     return(
         <div >
         <div >
-  
+            <h2>Month:{Location.state.month}</h2>
           <form className="s-form" onSubmit={handleSubmit}>
   
   
