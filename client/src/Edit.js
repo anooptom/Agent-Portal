@@ -105,7 +105,6 @@ const Edit = () => {
                 name="vno"
                 value={det.vno}
                 onChange={handleChange}
-                required
               />
             </div>
 

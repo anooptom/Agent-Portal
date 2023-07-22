@@ -39,7 +39,9 @@ const Dashboard = () => {
     fetchclients();
   },[selectedOption]);
   
-  
+  useEffect(()=>{
+    setSelectedOption(Location.state.month)
+  },[Location.state])
 
 
   return (
