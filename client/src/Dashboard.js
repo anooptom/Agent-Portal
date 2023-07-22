@@ -11,8 +11,6 @@ const Dashboard = () => {
   });
   const [cli, setCli] = useState([]);
   const Location = useLocation();
-  const [isTouchingDiv, setIsTouchingDiv] = useState(false);
-  const [showDeleteButton, setShowDeleteButton] = useState(false);
 
   const handleNavClick = (nav) => {
     setSelectedNav(nav);
@@ -41,23 +39,6 @@ const Dashboard = () => {
 
     fetchclients();
   }, [selectedOption]);
-
-  const handleMouseDown = () => {
-    setIsTouchingDiv(true);
-    setTimeout(() => {
-      setShowDeleteButton(true);
-    }, 1000);
-  };
-
-  const handleMouseUp = () => {
-    setIsTouchingDiv(false);
-   
-    setShowDeleteButton(false);
-  };
-
-  const handleDeleteClick = (dataId) => {
-alert("hi")
-  };
 
   return (
     <div className="dashboard-container">
@@ -102,20 +83,9 @@ alert("hi")
                         search: data._id,
                       }}
                     >
-                      <div
-                        className="item"
-                        onTouchStart={handleMouseDown}
-                        onTouchEnd={handleMouseUp}
-                        onMouseDown={handleMouseDown}
-                        onMouseUp={handleMouseUp}
-                      >
+                      <div className="item"                      >
                         <p>{data && data.name}</p>
-                        <p className="d">{data && data.date}</p>
-                        {isTouchingDiv && showDeleteButton && (
-                          <button onClick={() => handleDeleteClick(data._id)}>
-                            Delete
-                          </button>
-                        )}
+                        <p className="d">{data && data.date}</p>          
                       </div>
                     </Link>
                     <hr />
