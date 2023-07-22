@@ -42,7 +42,7 @@ const Add = () =>{
         axios.post(' https://agent-portal-api.vercel.app/add', {data:formData,month : Location.state.month})
           .then(response => {
             if(response.data.message === '1'){
-              navigate('/Dashboard');
+              navigate('/Dashboard',{ state: { month: Location.state.month } });
             }
           })
           .catch(error => {

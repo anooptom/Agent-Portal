@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [selectedNav, setSelectedNav] = useState('Vehicle');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(() => {
+    return sessionStorage.getItem('selectedOption') || '';
+  });
   const [cli,setCli] =useState([]);
   const Location = useLocation();
 
@@ -17,6 +19,7 @@ const Dashboard = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSelectedOption(value);
+    sessionStorage.setItem('selectedOption', value);
   };
   
 
@@ -38,10 +41,6 @@ const Dashboard = () => {
   
     fetchclients();
   },[selectedOption]);
-  
-  useEffect(()=>{
-    setSelectedOption(Location.state.month)
-  },[Location.state])
 
 
   return (
