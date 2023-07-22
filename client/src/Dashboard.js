@@ -1,6 +1,6 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
-import { useNavigate,useLocation} from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -9,8 +9,10 @@ const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState(() => {
     return sessionStorage.getItem('selectedOption') || '';
   });
-  const [cli,setCli] =useState([]);
+  const [cli, setCli] = useState([]);
   const Location = useLocation();
+  const [isHoldingDiv, setIsHoldingDiv] = useState(false);
+  const [showDeleteButton, setShowDeleteButton] = useState(false);
 
   const handleNavClick = (nav) => {
     setSelectedNav(nav);
@@ -21,9 +23,8 @@ const Dashboard = () => {
     setSelectedOption(value);
     sessionStorage.setItem('selectedOption', value);
   };
-  
 
-  useEffect(() =>{
+  useEffect(() => {
     const fetchclients = async () => {
       await fetch(`https://agent-portal-api.vercel.app/clients?name=${encodeURIComponent(selectedOption)}`, {
         method: 'GET',
@@ -35,13 +36,29 @@ const Dashboard = () => {
         .then(res => (res.json()))
         .then(json => {
           setCli(json);
-  
+
         })
     };
-  
-    fetchclients();
-  },[selectedOption]);
 
+    fetchclients();
+  }, [selectedOption]);
+
+  const handleMouseDown = () => {
+    setIsHoldingDiv(true);
+    setTimeout(() => {
+      setShowDeleteButton(true);
+    }, 1000);
+  };
+
+  const handleMouseUp = () => {
+    setIsHoldingDiv(false);
+
+    setShowDeleteButton(false);
+  };
+
+  const handleDeleteClick = (dataId) => {
+    alert("deleted")
+  };
 
   return (
     <div className="dashboard-container">
@@ -79,22 +96,34 @@ const Dashboard = () => {
 
           <div className='disp'>
             <hr />
-            {cli.length > 0 && cli.map((data) => {
-              return (
-                <div>
-                <Link to={{
-                  pathname: "/View",
-                  search:data._id
-                }}>
-                  <div className='item'>
-                    <p>{data && data.name}</p>
-                    <p className='d'>{data && data.date}</p>
+            {cli.length > 0 &&
+              cli.map((data) => {
+                return (
+                  <div key={data._id}>
+                    <Link
+                      to={{
+                        pathname: "/View",
+                        search: data._id,
+                      }}
+                    >
+                      <div
+                        className="item"
+                        onMouseDown={handleMouseDown}
+                        onMouseUp={handleMouseUp}
+                      >
+                        <p>{data && data.name}</p>
+                        <p className="d">{data && data.date}</p>
+                        {isHoldingDiv && showDeleteButton && (
+                          <button onClick={() => handleDeleteClick(data._id)}>
+                            Delete
+                          </button>
+                        )}
+                      </div>
+                    </Link>
+                    <hr />
                   </div>
-                </Link>
-                <hr />
-              </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       )}
