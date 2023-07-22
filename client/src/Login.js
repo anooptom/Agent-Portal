@@ -27,7 +27,7 @@ const Login = () =>{
     axios.post(' https://agent-portal-api.vercel.app/login', formData)
       .then(response => {
         if(response.data.message === '1'){
-          navigate('/Dashboard',{ state: { month: 'jan' } });
+          navigate('/Dashboard',{ state: { month: 'may' } });
         }
         else if (response.data.message === '0') {
           setAlertMessage("Wrong Password!");

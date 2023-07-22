@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [selectedNav, setSelectedNav] = useState('Vehicle');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(Location.state.month);
   const [cli,setCli] =useState([]);
   const Location = useLocation();
 
@@ -38,10 +38,6 @@ const Dashboard = () => {
   
     fetchclients();
   },[selectedOption]);
-  
-  useEffect(()=>{
-    setSelectedOption(Location.state.month)
-  },[Location.state])
 
 
   return (
