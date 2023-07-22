@@ -11,7 +11,7 @@ const Dashboard = () => {
   });
   const [cli, setCli] = useState([]);
   const Location = useLocation();
-  const [isHoldingDiv, setIsHoldingDiv] = useState(false);
+  const [isTouchingDiv, setIsTouchingDiv] = useState(false);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
 
   const handleNavClick = (nav) => {
@@ -36,7 +36,6 @@ const Dashboard = () => {
         .then(res => (res.json()))
         .then(json => {
           setCli(json);
-
         })
     };
 
@@ -44,25 +43,24 @@ const Dashboard = () => {
   }, [selectedOption]);
 
   const handleMouseDown = () => {
-    setIsHoldingDiv(true);
+    setIsTouchingDiv(true);
     setTimeout(() => {
       setShowDeleteButton(true);
     }, 1000);
   };
 
   const handleMouseUp = () => {
-    setIsHoldingDiv(false);
-
+    setIsTouchingDiv(false);
+   
     setShowDeleteButton(false);
   };
 
   const handleDeleteClick = (dataId) => {
-    alert("deleted")
+alert("hi")
   };
 
   return (
     <div className="dashboard-container">
-
       <div className='nav'>
         <ul>
           <li onClick={() => handleNavClick('Vehicle')} className={selectedNav === 'Vehicle' ? 'active' : ''}>Vehicle</li>
@@ -90,8 +88,6 @@ const Dashboard = () => {
             </select>
 
             <button className='btn' onClick={() => navigate('/Add', { state: { month: selectedOption } })}>Add</button>
-
-
           </form>
 
           <div className='disp'>
@@ -108,12 +104,14 @@ const Dashboard = () => {
                     >
                       <div
                         className="item"
+                        onTouchStart={handleMouseDown}
+                        onTouchEnd={handleMouseUp}
                         onMouseDown={handleMouseDown}
                         onMouseUp={handleMouseUp}
                       >
                         <p>{data && data.name}</p>
                         <p className="d">{data && data.date}</p>
-                        {isHoldingDiv && showDeleteButton && (
+                        {isTouchingDiv && showDeleteButton && (
                           <button onClick={() => handleDeleteClick(data._id)}>
                             Delete
                           </button>
